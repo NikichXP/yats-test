@@ -22,7 +22,7 @@ $(function(){
 		
 		$.ajax({
 			type: 'GET',
-			url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/auth',
+			url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/auth',
 			data: authData,
 			success: function(resData) {
 				sTO = resData.timeout;

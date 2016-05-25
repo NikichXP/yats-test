@@ -23,7 +23,7 @@
 		else 
 			$.ajax({
 				type: 'GET',
-				url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/checkToken',
+				url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/checkToken',
 				data: { token: getCookie("sesToken")},
 				success: function(resData) { 
 					if (resData.value == false) window.location = "auth.html";
@@ -34,7 +34,7 @@
 	//get user name	
 	$.ajax({
 		type: 'GET',
-		url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/getname',
+		url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/getname',
 		data: tokenJson,
 		success: function(resData) {
 			$('#p-greeting').append("<h3>Добро пожаловать, " + resData.name + "!</h3>");
@@ -43,7 +43,7 @@
 	//dynamic table of orders
 	$.ajax({
 		type: 'GET',
-		url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/allOrders',
+		url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/allOrders',
 		data: tokenJson,
 		success: function(resData) { 
 			for (var i = 0; i < resData.items.length; i++)
@@ -131,7 +131,7 @@
 		
 		$.ajax({
 		type: 'GET',
-		url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/getMyClients',
+		url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/getMyClients',
 		data: tokenJson,
 		success: function(resData) {
 			var imax = resData.items.length;
@@ -164,7 +164,7 @@
 		
 		$.ajax({
 		type: 'GET',
-		url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/allProducts',
+		url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/allProducts',
 		data: tokenJson,
 		success: function(resData) {
 			var imax = resData.items.length;
@@ -209,7 +209,7 @@
 		
 		$.ajax({
 		type: 'GET',
-		url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/allOrders',
+		url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/allOrders',
 		data: tokenJson,
 		success: function(resData) { 
 			$('#order-payment-text-block').html("<H2>Редактирование заказа #" + resData.items[rowIndex].id + "</H2>");
@@ -243,7 +243,7 @@
 		
 		$.ajax({
 			type: 'GET',
-			url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/editorder',
+			url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/editorder',
 			data: paymentData,
 			success: location.reload(),	
 		});		
@@ -259,7 +259,7 @@
 		
 		$.ajax({
 			type: 'GET',
-			url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/cancelOrder',
+			url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/cancelOrder',
 			data: delData,
 			success: location.reload(),	
 		});		
@@ -299,7 +299,7 @@
 			
 			$.ajax({
 				type: 'GET',
-				url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/createorder',
+				url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/createorder',
 				data: orderData,
 				success: function(resData) { 
 					if ($('#file-upload-chb').is(':checked'))
@@ -326,7 +326,7 @@
 		
 		$.ajax({
 		type: 'GET',
-		url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/getMyClients',
+		url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/getMyClients',
 		data: tokenJson,
 		success: function(resData) {
 			var imax = resData.items.length;
@@ -374,7 +374,7 @@
 			
 			$.ajax({
 			type: 'POST',
-			url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/createuser',
+			url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/createuser',
 			data: clData,
 			processData: false,
 			contentType: false,
