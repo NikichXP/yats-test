@@ -1,0 +1,547 @@
+body {
+	margin: 0px;
+	font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
+	font-size: 14px; 
+	background-color: #f1f1f1;
+	z-index: 100;
+}
+
+#opacity {
+	height: 100%;
+	width: 100%;
+	background-color: #f1f1f1;
+	display: none;
+	position: absolute;
+	opacity: 0.8;
+	z-index: 500;
+}
+
+
+
+#order-client-name {
+	margin: auto;
+	width: 200px;
+	background-color: #fff;
+	border: 1px solid #d9e0e7;
+	cursor: pointer;
+}
+
+#order-product-name {
+	margin: auto;
+	width: 200px;
+	background-color: #fff;
+	border: 1px solid #d9e0e7;
+	cursor: pointer;
+}
+
+#lists-container {
+	height: 100%;
+	width: 100%;
+	display: none;
+	position: absolute;
+	z-index: 504;
+}
+
+/* LIST OF CLIENTS FOR ORDER CREATION */
+
+#client-list {
+	margin: auto;
+	margin-top: 185px;
+	width: 600px;
+	background-color: #f1f1f1;
+	display: none;
+	z-index: 505;
+}
+
+#client-list-head {
+	width: 100%;
+	background-color: #435ea4;
+	text-align: center;
+	color: #fff;
+	line-height: 20px;
+	margin: 0;
+}
+
+#client-list-body {
+	width: 100%;
+	max-height: 212px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#table-client-list {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	width: 100%;
+	font-size: 11px
+}
+
+#table-client-list td {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	padding: 10px 5px 10px 5px;
+	text-align: center;
+}
+
+#table-client-list thead {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	padding: 10px 5px 10px 5px;
+	text-align: center;
+	background-color: #82a8bc;
+}
+
+.td-client-list {
+	width: 100px;
+	background-color: #fff;
+}
+
+.td-client-list:hover {
+	cursor: pointer;
+	background-color: #82a8bc;
+}
+
+/* LIST OF PRODUCTS FOR ORDER CREATION */
+
+#product-list {
+	margin: auto;
+	margin-top: 245px;
+	width: 600px;
+	background-color: #f1f1f1;
+	display: none;
+	z-index: 505;
+}
+
+#product-list-head {
+	width: 100%;
+	background-color: #435ea4;
+	text-align: center;
+	color: #fff;
+	line-height: 20px;
+	margin: 0;
+}
+
+#product-list-body {
+	width: 100%;
+	max-height: 212px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#table-product-list {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	width: 100%;
+	font-size: 11px
+}
+
+#table-product-list td {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	padding: 10px 5px 10px 5px;
+	text-align: center;
+}
+
+#table-product-list thead {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	padding: 10px 5px 10px 5px;
+	text-align: center;
+	background-color: #82a8bc;
+}
+
+.td-product-list {
+	width: 100px;
+	background-color: #fff;
+} 
+
+.td-product-list:hover {
+	cursor: pointer;
+	background-color: #82a8bc;
+	width: 100px;
+}
+
+/* ORDER PAYMENT */
+
+#order-edit-payment {
+	margin: auto;
+	height: 300px;
+	width: 50%;
+	left: 25%;
+	top: 10%;
+	background-color: #f1f1f1;
+	border: 1px solid #d9e0e7;
+	display: none;
+	position: absolute;
+	z-index: 501;
+}
+
+#order-payment-text-block {
+	height: 40px;
+	width: 100%;
+	background-color: #435ea4;
+	text-align: center;
+	line-height: 40px;
+}
+
+#order-payment-text-block H2 {
+	color: #fff;
+	margin: 0px;
+}
+
+#order-payment-main {
+	margin: auto;
+	margin-top: 10px;
+	width: 100%;
+	text-align: center;
+}
+
+#order-payment-client-name {
+	margin: auto;
+	width: 200px;
+	line-height: 40px;
+	background-color: #fff;
+	border: 1px solid #d9e0e7;
+}
+
+#order-payment-product-name {
+	margin: auto;
+	width: 200px;
+	line-height: 40px;
+	background-color: #fff;
+	border: 1px solid #d9e0e7;
+}
+
+#table-order-payment {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	margin: auto;
+	width: 90%;
+	font-size: 11px
+}
+
+#table-order-payment-header {
+	background-color: #82a8bc;
+}
+
+#table-order-payment td {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	padding: 10px 5px 10px 5px;
+	text-align: center;
+}
+
+#input-paid {
+	text-align: center;
+}
+
+#order-edit-del {
+	width: 110px;
+}
+
+/* ORDER CREATION*/
+
+#order-create {
+	margin: auto;
+	/* height: 305px; */
+	width: 50%;
+	left: 25%;
+	top: 10%;
+	background-color: #f1f1f1;
+	border: 1px solid #d9e0e7;
+	display: none;
+	position: absolute;
+	z-index: 501;
+	padding-bottom: 10px;
+}
+
+#order-create-text-block {
+	height: 40px;
+	width: 100%;
+	background-color: #435ea4;
+	text-align: center;
+	line-height: 40px;
+}
+
+#order-create-text-block H2 {
+	color: #fff;
+	margin: 0px;
+}
+
+#order-create-main {
+	margin: auto;
+	margin-top: 10px;
+	width: 100%;
+	text-align: center;
+}
+
+#order-create-file-form {
+	width: 140px
+}
+
+#order-create-file-upload {
+	display: none;
+}
+
+#order-create-client-name {
+	margin: auto;
+	width: 200px;
+	line-height: 40px;
+	background-color: #fff;
+	border: 1px solid #d9e0e7;
+}
+
+#order-create-product-name {
+	margin: auto;
+	width: 200px;
+	line-height: 40px;
+	background-color: #fff;
+	border: 1px solid #d9e0e7;
+}
+
+#table-order-create {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	margin: auto;
+	width: 90%;
+	font-size: 11px
+}
+
+#table-order-create td {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	padding: 10px 5px 10px 5px;
+	text-align: center;
+}
+
+#create-input-paid {
+	width: 100%; 
+	text-align: center;
+	border: none;
+	background-color: #fff;
+}
+
+#create-input-paid:focus {
+	outline: none;
+	background-color: #fff;
+}
+
+td.order-create-td-res {
+	background-color: #fff;
+}
+
+/* CLIENT MENU */
+
+#client-menu {
+	margin: auto;
+	height: 322px;
+	width: 50%;
+	left: 25%;
+	top: 10%;
+	background-color: #f1f1f1;
+	border: 1px solid #d9e0e7;
+	display: none;
+	position: absolute;
+	z-index: 501;
+}
+
+#client-menu-text-block {
+	height: 40px;
+	width: 100%;
+	background-color: #435ea4;
+	text-align: center;
+	line-height: 40px;
+}
+
+#client-menu-text-block H2 {
+	color: #fff;
+	margin: 0px;
+}
+
+#client-menu-main {
+	margin: auto;
+	margin-top: 10px;
+	width: 100%;
+	text-align: center;
+	max-height: 212px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#table-client-menu {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	margin: auto;
+	width: 90%;
+	font-size: 11px
+}
+
+#table-client-menu td {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	padding: 10px 5px 10px 5px;
+	text-align: center;
+}
+
+#client-menu-create
+{
+	width: 200px;
+}
+
+#client-menu-dismiss
+{
+	width: 200px;
+	display: none;
+}
+
+
+#client-new {
+	margin: auto;
+	width: 100%;
+	text-align: center;
+	display: none;
+}
+
+/* BUTTON IN ALL MENUS */
+
+.div-form-button {
+	height: 40px;
+	width: 80px;
+	margin: auto;
+	margin-top: 10px;
+	background-color: #5269b1;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
+}
+
+/* HEADER */
+
+#header {
+	height: 80px;
+	width: 100%;
+	min-width: 930px;
+	background-color: #f1f1f1;
+}
+
+#header-main {
+	height: 100%;
+	width: 95%;
+	background-color: /* #688bb0; */ #435ea4;
+	margin: auto;
+	border-radius: 0 0 20px 20px;
+}
+
+#header-main H1 {
+	color: #fff;
+	margin: 0px;
+	line-height: 70px;
+	margin-left: 20px;
+}
+
+/* MAIN DIV */
+
+#main {
+	height: 700px;
+	width: 90%;
+	min-width: 732px;
+	/* border: 1px solid #d9e0e7; */
+	margin: auto;
+	margin-top: 0px;
+}
+
+#div-right {
+	height: 100%;
+	width: 70%;
+	min-width: 600px;
+	border: 1px solid #d9e0e7;
+	position: relative;
+	float: left;
+}
+
+/* SIDE MENU STARTS HERE */
+
+#div-side-menu {
+	width: 15%;
+	min-width: 130px;
+	height: 100%;
+	background-color: #f1f1f1;
+	position: relative;
+	float: left;
+}
+
+#ul-side-menu {
+	padding: 0;
+	width: 120px;
+	float: right;
+}
+
+#ul-side-menu li {
+	list-style: none;
+	width: 110px;
+	line-height: 20px;
+	font-size: 12px;
+	padding-left: 10px;
+	cursor: pointer;
+}
+
+#ul-side-menu li:hover {
+	list-style: none;
+	background-color: #5269b1;
+	color: #fff;
+}
+
+#p-greeting {
+	margin: auto;
+	margin-top: 10px;
+	width: 300px;
+	text-align: center;
+}
+
+#ul-stats {
+	padding: 0;
+}
+
+#ul-stats li {
+	margin-left: 15px;
+	list-style: none;
+	padding-left: 10px;
+	font-size: 11px;
+}
+
+/* DIV WITH TABLE OF ORDERS STARTS HERE */
+
+#div-order-table {
+	max-height: 505px;
+	width: 95%;
+	margin: auto;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#table-orders {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	width: 100%;
+	font-size: 11px
+}
+
+#table-orders-header {
+	background-color: #82a8bc;
+}
+
+#table-orders td {
+	border: 1px solid #d9e0e7;
+	border-spacing: 0px;
+	padding: 10px 5px 10px 5px;
+	text-align: center;
+}
+
+.tr-order:hover {
+	background-color: #82a8bc;
+	cursor: pointer;
+}
+
+
+

@@ -1,0 +1,80 @@
+body {
+	margin: 0px;
+	font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
+	font-size: 14px; 
+}
+
+#opacity{
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+	display: none;
+	position: absolute;
+	opacity: 0.5;
+	z-index: 500;
+}
+#div-auth {
+	position: absolute;
+	height: 200px;
+	width: 350px;
+	background-color: #fff;
+	border: 1px solid #d9e0e7;
+	left: 50%;
+	top: 50%;
+	margin-left: -251px; 
+    margin-top: -100px;
+	z-index: 520;
+}
+
+#div-auth-text-block {
+	height: 40px;
+	width: 100%;
+	background-color: #435ea4;
+	text-align: center;
+	line-height: 40px;
+}
+#div-auth-text-block H2 {
+	color: #fff;
+	margin: 0px;
+}
+
+#div-send-button {
+	height: 40px;
+	width: 80px;
+	margin: auto;
+	margin-top: 10px;
+	background-color: #5269b1;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
+}
+
+#div-form {
+	margin: auto;
+	margin-top: 10px;
+	width: 100%;
+	text-align: center;
+}
+
+
+#header {
+	height: 80px;
+	width: 100%;
+	background-color: #fff;
+}
+
+#header-main {
+	height: 100%;
+	width: 95%;
+	background-color: #435ea4;
+	margin: auto;
+	border-radius: 0 0 20px 20px;
+}
+
+#header-main H1 {
+	color: #fff;
+	margin: 0px;
+	line-height: 70px;
+	margin-left: 20px;
+}

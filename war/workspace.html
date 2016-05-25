@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		
+		<link rel='stylesheet' type='text/css' href='s_workspace.css' />
+		
+		<script type="text/javascript" src="cookie_func.js"></script>
+		<script>
+			var authSesToken = getCookie("sesToken");
+			var authSesTO = getCookie("sesTO");
+			var dateObj = new Date();
+			
+			if (authSesToken != null)
+				if(authSesTO - dateObj < 0)
+					window.location = "auth.html";
+		</script>
+		
+		<script type="text/javascript" src="jquery-2.2.3.min.js"></script>
+		<script type="text/javascript" src="j_workspace.js"></script>	
+		
+		<title>EduPortal</title>
+	</head>
+	
+	
+	<body>
+		<div id="opacity"></div>	
+		
+		<div id="order-edit-payment">
+			<div id="order-payment-text-block"></div>
+			<div id="order-payment-main">	
+				<table id="table-order-payment">
+					<tbody><tr id="table-order-payment-header">
+						<td>Клиент</td>
+						<td>Продукт</td>
+						<td>Стоимость</td>
+						<td>Внесенная оплата</td>
+						<td>Осталось</td>
+					</tr></tbody>
+				</table>
+				<div id="order-payment-edit">
+					<p>Внесите оплату:</p>
+					<input type="text" id="input-paid" name="paid" placeholder="0.00">
+				</div>
+				<div class="div-form-button" id="order-edit-send">Принять</div>
+				<div class="div-form-button" id="order-edit-del">Отменить заказ</div>
+			</div>
+			<input type="hidden" id="input-order-Id">
+		</div>
+		
+		<div id="order-create">
+			<div id="order-create-text-block"></div>
+			<div id="order-create-main">	
+				<table id="table-order-create">
+					<tbody>
+						<tr>
+							<td>Клиент</td>
+							<td id='order-client-name'></td>
+						</tr>
+						<tr>
+							<td>Продукт</td>
+							<td id='order-product-name'></td>
+						</tr>
+						<tr>
+							<td>Стоимость</td>
+							<td id='order-product-price'></td>
+						</tr>
+						<tr>
+							<td>Внесенная оплата</td>
+							<td id='order-product-paid'><input type="text" id="create-input-paid" placeholder="0.00"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="div-form-button" id="order-create-file-form">Приложить файлы</div>
+				
+				<div id="order-create-file-upload"></div>
+				
+				<div class="div-form-button" id="order-create-send">Принять</div>
+			</div>
+			<input type="hidden" id="input-order-client-id">
+			<input type="hidden" id="input-order-product-id">
+		</div>
+		
+		<div id="lists-container">
+			<div id="client-list">
+				<p id='client-list-head'>Ваши клиенты</p>
+				<div id="client-list-body">
+					<table id="table-client-list">
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+			<div id="product-list">
+				<p id='product-list-head'>Продукты</p>
+				<div id="product-list-body">
+					<table id="table-product-list">
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<div id="client-menu">
+			<div id="client-menu-text-block"></div>
+			<div id="client-menu-main">
+				<table id="table-client-menu">
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+			<div id="client-new">
+					<p>Имя:</p>
+					<input type='text' id='client-new-name' value='sas'>
+					<p>Фамилия:</p>
+					<input type='text' id='client-new-surname' value='ssasa'>
+					<p>Адресс электронной почты:</p>
+					<input type='text' id='client-new-email' value='sas@sas.com'>
+					<p>Номер телефона:</p>
+					<input type='text' id='client-new-phone' value='+380507295746'>
+			</div>
+			<div class="div-form-button" id="client-menu-create">Добавить клиента</div>	
+			<div class="div-form-button" id="client-menu-dismiss">Отмена</div>	
+		</div>
+		
+		<div id="header">
+			<div id="header-main"><H1>EduPortal</H1></div>
+		</div>
+
+		<div id="main">
+			<div id="div-side-menu">
+				<ul id="ul-side-menu">
+					<li id="menu-showses">Show cookie info</li>
+					<li id="menu-client-open" >Мои клиенты</li>
+					<li id="menu-create-order">Оформить заказ</li>
+					<li>Menu item 4</li>
+					<li>Menu item 5</li>
+					<li>Menu item 6</li>
+					<li id="menu-logout">Log Out</li>
+				</ul>
+			</div>
+			<div id="div-right">
+				<p id="p-greeting"></p>
+				<ul id="ul-stats">
+					<li id="li-open-orders">Открытых заказов:</li>
+					<li id="li-done-orders">Неоплаченых заказов:</li>
+				</ul>
+				<div id="div-order-table">
+					<table id="table-orders">
+						<tr id="table-orders-header">
+							<td>№</td>
+							<td>ID заказа</td>
+							<td>Клиент</td>
+							<td>Продукт</td>
+							<td>Оформил</td>
+							<td>Внесенная<br />оплата</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	
+		<div id="footer"></div>
+	</body>
+</html>
