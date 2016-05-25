@@ -287,57 +287,16 @@
 		}
 		else
 		{
-			/* for (var i = 1; i <= k; i++)
+			for (var i = 1; i <= k; i++)
 			{
 				$('#order-create-file-upload').append("<br /><input type='file' id='myFile-" + i +"'>");
-			}	 */
+			}	
 			$('#order-create-file-upload').css('display', 'block');
 			$('#order-create-file-form').html("Cпрятать");
 		}		
 	});
 	
 	//send new order
-	$('#my_form').on('submit', function(e) {
-		var $that = $(this);
-		
-		var pID = $('#input-order-product-id').val();
-		var cID = $('#input-order-client-id').val();
-		var paidSum = $('#create-input-paid').val();
-		
-		if (!$.isNumeric(paidSum)) paidSum = 0;
-		if (!$.isNumeric(pID)) alert ('Заполните обязательные поля');
-		else if (!$.isNumeric(cID)) alert ('Заполните обязательные поля');
-		else
-		{
-			var orderData = {
-				token: authSesToken,
-				productid: pID,
-				clientid: cID,
-				paid: paidSum,
-			};
-			
-			$.ajax({
-				type: 'GET',
-				url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/createorder',
-				data: orderData,
-			});	
-			
-			$.ajax({
-				type: 'GET',
-				url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/getBlobPath',
-				success: function (resData) {
-					formData = new FormData($that.files[0]); 
-					$.ajax({
-						url: resData.value,
-						type: 'POST',
-						contentType: false, 
-						processData: false, 
-						data: formData,
-					});
-				},
-			});
-		};
-	});
 	$('#order-create-send').on('click', function() {
 		
 		var pID = $('#input-order-product-id').val();
@@ -368,6 +327,7 @@
 			url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/getBlobPath',
 			success: function(resData) { 
 <<<<<<< HEAD
+<<<<<<< HEAD
 				var clData = new FormData();  
 				
 				clData.append('myFile', $('myFile-1[name=txtfilePath]').val());
@@ -375,6 +335,10 @@
 				var clData = new FormData();    
 				clData.append('myFile', $('#myFile-1').val());
 >>>>>>> parent of c9edbd0... das sas
+=======
+				var clData = new FormData();    
+				clData.append('myFile', $('#myFile-1').val());
+>>>>>>> origin/master
 				clData.append('token', getCookie("sesToken"));
 				
 				$.ajax({
