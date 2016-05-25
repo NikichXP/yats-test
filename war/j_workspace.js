@@ -1,4 +1,6 @@
-﻿$(function(){
+﻿//https://beta-dot-nctc-yats.appspot.com/
+//https://beta-dot-eduportal-1277.appspot.com/
+$(function(){
 	var count;	
 	var $resDiv = $('#div-right');
 	var dateObj = new Date();
@@ -23,7 +25,7 @@
 		else 
 			$.ajax({
 				type: 'GET',
-				url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/checkToken',
+				url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/checkToken',
 				data: { token: getCookie("sesToken")},
 				success: function(resData) { 
 					if (resData.value == false) window.location = "auth.html";
@@ -34,7 +36,7 @@
 	//get user name	
 	$.ajax({
 		type: 'GET',
-		url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/getname',
+		url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/getname',
 		data: tokenJson,
 		success: function(resData) {
 			$('#p-greeting').append("<h3>Добро пожаловать, " + resData.name + "!</h3>");
@@ -43,7 +45,7 @@
 	//dynamic table of orders
 	$.ajax({
 		type: 'GET',
-		url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/allOrders',
+		url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/allOrders',
 		data: tokenJson,
 		success: function(resData) { 
 			for (var i = 0; i < resData.items.length; i++)
@@ -63,10 +65,10 @@
 				if (resData.items[i].donePaid == false) k++;
 			$('#li-done-orders').append(" " + k);
 		},
-	});	
+	});
 	//debug button to get token	
 	$('#menu-showses').on('click', function(){
-		$resDiv.append("TokenId = " + getCookie("sesToken") + "; tokenTO = " + getCookie("sesTO"));	
+		$resDiv.append("TokenId = " + getCookie("sesToken") + ";<br /> tokenTO = " + getCookie("sesTO") + ";<br /> AccessLevel = " + getCookie("accessLevel") + ";");	
 	});
 	//log out
 	$('#menu-logout').on('click', function(){
@@ -131,7 +133,7 @@
 		
 		$.ajax({
 		type: 'GET',
-		url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/getMyClients',
+		url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/getMyClients',
 		data: tokenJson,
 		success: function(resData) {
 			var imax = resData.items.length;
@@ -164,7 +166,7 @@
 		
 		$.ajax({
 		type: 'GET',
-		url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/allProducts',
+		url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/allProducts',
 		data: tokenJson,
 		success: function(resData) {
 			var imax = resData.items.length;
@@ -209,7 +211,7 @@
 		
 		$.ajax({
 		type: 'GET',
-		url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/allOrders',
+		url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/allOrders',
 		data: tokenJson,
 		success: function(resData) { 
 			$('#order-payment-text-block').html("<H2>Редактирование заказа #" + resData.items[rowIndex].id + "</H2>");
@@ -243,7 +245,7 @@
 		
 		$.ajax({
 			type: 'GET',
-			url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/editorder',
+			url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/editorder',
 			data: paymentData,
 			success: location.reload(),	
 		});		
@@ -259,7 +261,7 @@
 		
 		$.ajax({
 			type: 'GET',
-			url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/cancelOrder',
+			url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/cancelOrder',
 			data: delData,
 			success: location.reload(),	
 		});		
@@ -317,23 +319,30 @@
 			
 			$.ajax({
 				type: 'GET',
-				url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/createorder',
+				url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/createorder',
 				data: orderData,
 				/* success: location.reload(),	 */
 			});	
 			
 			$.ajax({
 			type: 'GET',
-			url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/getBlobPath',
+			url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/getBlobPath',
 			success: function(resData) { 
-				var clData = new FormData();    
-				clData.append('myFile', $('#myFile-1').val());
+				var files;
+				$('input[type=file]#myFile-1').change(function(){
+					files = this.files;
+				});
+				var clData = new FormData();  
+				
+				clData.append('myFile', files);
 				clData.append('token', getCookie("sesToken"));
 				
 				$.ajax({
 					type: 'POST',
 					url: resData.value,
 					data: clData,
+					cache: false,
+					dataType: 'json',
 					processData: false,
 					contentType: false,
 					/* success: location.reload(),	 */
@@ -353,7 +362,7 @@
 		
 		$.ajax({
 		type: 'GET',
-		url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/getMyClients',
+		url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/getMyClients',
 		data: tokenJson,
 		success: function(resData) {
 			var imax = resData.items.length;
@@ -401,7 +410,7 @@
 			
 			$.ajax({
 			type: 'POST',
-			url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/createuser',
+			url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/createuser',
 			data: clData,
 			processData: false,
 			contentType: false,
