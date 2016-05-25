@@ -299,6 +299,47 @@ $(function(){
 	});
 	
 	//send new order
+	$('#my_form').on('submit', function(e) {
+		var $that = $(this);
+		
+		var pID = $('#input-order-product-id').val();
+		var cID = $('#input-order-client-id').val();
+		var paidSum = $('#create-input-paid').val();
+		
+		if (!$.isNumeric(paidSum)) paidSum = 0;
+		if (!$.isNumeric(pID)) alert ('Заполните обязательные поля');
+		else if (!$.isNumeric(cID)) alert ('Заполните обязательные поля');
+		else
+		{
+			var orderData = {
+				token: authSesToken,
+				productid: pID,
+				clientid: cID,
+				paid: paidSum,
+			};
+			
+			$.ajax({
+				type: 'GET',
+				url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/createorder',
+				data: orderData,
+			});	
+			
+			$.ajax({
+				type: 'GET',
+				url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/getBlobPath',
+				success: function (resData) {
+					formData = new FormData($that.files[0]); 
+					$.ajax({
+						url: resData.value,
+						type: 'POST',
+						contentType: false, 
+						processData: false, 
+						data: formData,
+					});
+				},
+			});
+		};
+	});
 	$('#order-create-send').on('click', function() {
 		
 		var pID = $('#input-order-product-id').val();
@@ -330,7 +371,7 @@ $(function(){
 			success: function(resData) { 
 				var clData = new FormData();  
 				
-				clData.append('myFile', $('#myFile-1').files[0]);
+				clData.append('myFile', $('myFile-1[name=txtfilePath]').val());
 				clData.append('token', getCookie("sesToken"));
 				
 				$.ajax({
