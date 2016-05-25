@@ -289,10 +289,10 @@ $(function(){
 		}
 		else
 		{
-			/* for (var i = 1; i <= k; i++)
+			for (var i = 1; i <= k; i++)
 			{
 				$('#order-create-file-upload').append("<br /><input type='file' id='myFile-" + i +"'>");
-			}	 */
+			}	
 			$('#order-create-file-upload').css('display', 'block');
 			$('#order-create-file-form').html("Cпрятать");
 		}		
@@ -328,9 +328,13 @@ $(function(){
 			type: 'GET',
 			url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/user/v1/getBlobPath',
 			success: function(resData) { 
+				var files;
+				$('input[type=file]#myFile-1').change(function(){
+					files = this.files;
+				});
 				var clData = new FormData();  
 				
-				clData.append('myFile', $('#myFile-1').files[0]);
+				clData.append('myFile', files);
 				clData.append('token', getCookie("sesToken"));
 				
 				$.ajax({
