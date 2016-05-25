@@ -254,18 +254,6 @@ body {
 	z-index: 501;
 	padding-bottom: 10px;
 }
-#button-send-order {
-	height: 40px;
-	width: 80px;
-	margin: auto;
-	margin-top: 10px;
-	background-color: #5269b1;
-	color: #fff;
-	text-align: center;
-	line-height: 40px;
-	cursor: pointer;	
-	border: 0;
-}
 
 #order-create-text-block {
 	height: 40px;
