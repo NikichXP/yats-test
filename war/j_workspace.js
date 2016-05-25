@@ -66,7 +66,7 @@
 	});	
 	//debug button to get token	
 	$('#menu-showses').on('click', function(){
-		$resDiv.append("TokenId = " + getCookie("sesToken") + "; tokenTO = " + getCookie("sesTO"));	
+		$resDiv.append("TokenId = " + getCookie("sesToken") + "; tokenTO = " + getCookie("sesTO") + "; accessLevel = " + getCookie("accessLevel") + ";");	
 	});
 	//log out
 	$('#menu-logout').on('click', function(){
@@ -275,27 +275,7 @@
 		$('#order-create').css('display', 'block');
 		$('#order-create-file-form').html("Приложить файлы");
 	});
-	
-	//order creation file uploading form
-	$('#order-create-file-form').on('click', function() {
-		var k = 1;
-		if ($('#order-create-file-upload').css('display') == 'block')
-		{
-			$('#order-create-file-upload').css('display', 'none');
-			$('#order-create-file-upload').html("");
-			$('#order-create-file-form').html("Приложить файлы");
-		}
-		else
-		{
-			for (var i = 1; i <= k; i++)
-			{
-				$('#order-create-file-upload').append("<br /><input type='file' id='myFile-" + i +"'>");
-			}	
-			$('#order-create-file-upload').css('display', 'block');
-			$('#order-create-file-form').html("Cпрятать");
-		}		
-	});
-	
+		
 	//send new order
 	$('#order-create-send').on('click', function() {
 		
@@ -315,42 +295,24 @@
 				paid: paidSum,
 			};
 			
+			
+			
 			$.ajax({
 				type: 'GET',
 				url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/order/v1/createorder',
 				data: orderData,
-				/* success: location.reload(),	 */
+				success: function(resData) { 
+					if ($('#file-upload-chb').is(':checked'))
+					{
+						var url = "File.jsp?order=" + resData.id;
+						var windowName = "File Upload";
+						var windowSize = ["width=500, height=500"];
+						window.open(url, windowName, windowSize);
+						event.preventDefault();
+					}
+				},
 			});	
 			
-			$.ajax({
-			type: 'GET',
-			url: 'https://beta-dot-eduportal-1277.appspot.com/_ah/api/user/v1/getBlobPath',
-			success: function(resData) { 
-<<<<<<< HEAD
-<<<<<<< HEAD
-				var clData = new FormData();  
-				
-				clData.append('myFile', $('myFile-1[name=txtfilePath]').val());
-=======
-				var clData = new FormData();    
-				clData.append('myFile', $('#myFile-1').val());
->>>>>>> parent of c9edbd0... das sas
-=======
-				var clData = new FormData();    
-				clData.append('myFile', $('#myFile-1').val());
->>>>>>> origin/master
-				clData.append('token', getCookie("sesToken"));
-				
-				$.ajax({
-					type: 'POST',
-					url: resData.value,
-					data: clData,
-					processData: false,
-					contentType: false,
-					/* success: location.reload(),	 */
-				});	
-			},
-			});	
 		};	
 			
 	});

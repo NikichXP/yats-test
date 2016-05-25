@@ -12,9 +12,7 @@ $(function(){
 	if (authSesToken != null)
 		if(authSesTO - dateObj > 0)
 			window.location = "workspace.html";
-	
-	
-	
+
 	$('#div-send-button').on('click', function(){
 		
 		var authData = {
@@ -31,9 +29,9 @@ $(function(){
 				sID = resData.sessionId;
 				setCookie("sesToken", sID);
 				setCookie("sesTO", sTO);
+				setCookie("accessLevel", resData.AccessLevel);
 				window.location = "workspace.html";
 			},
-			error: $('#div-res').html('<p>Authorisation faild</p>')
 		});		
 
 	});
