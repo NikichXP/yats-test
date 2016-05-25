@@ -55,6 +55,7 @@
 						"<td>" + resData.items[i].productName + "</td>" +
 						"<td>" + resData.items[i].creatorName + "</td>" +
 						"<td>" + resData.items[i].paid + "</td>" +
+						"<td>" + checkFiles(resData.items[i]) + "</td>" +
 					"</tr>");	
 			};
 			$('#li-open-orders').append(" " + i);
@@ -205,6 +206,7 @@
 			"<td>Стоимость</td>" +
 			"<td>Внесенная оплата</td>" +
 			"<td>Осталось</td>" +
+			"<td>Файлы</td>" +
 		"</tbody>");
 		
 		$.ajax({
@@ -220,6 +222,7 @@
 				"<td>" + resData.items[rowIndex].price + "</td>" + 
 				"<td>" + resData.items[rowIndex].paid + "</td>" + 
 				"<td>" + (resData.items[rowIndex].price - resData.items[rowIndex].paid) + "</td>" + 
+				"<td>" + checkFiles(resData.items[rowIndex]) + "</td>" + 
 			+ "</tr>");
 			
 			$('#input-order-Id').val(resData.items[rowIndex].id);
@@ -249,6 +252,18 @@
 		});		
 
 	});
+	
+	//Add order files 
+	$('#order-edit-file').on('click', function(){
+	
+		var url = "File.jsp?order=" + $('#input-order-Id').val();
+		var windowName = "File Upload";
+		var windowSize = ["width=500, height=500"];
+		window.open(url, windowName, windowSize);
+		event.preventDefault();
+
+	});
+	
 	//Delete order
 	$('#order-edit-del').on('click', function(){
 
@@ -294,9 +309,7 @@
 				clientid: cID,
 				paid: paidSum,
 			};
-			
-			
-			
+
 			$.ajax({
 				type: 'GET',
 				url: 'https://beta-dot-nctc-yats.appspot.com/_ah/api/order/v1/createorder',
@@ -404,5 +417,11 @@ function checkBool(data)
 	if (data == true)
 		return "Да";
 	else return "Нет";
+};
+
+function checkFiles(data)
+{
+	if (data.files == null) return 0;
+	else return data.files.length;
 };
 

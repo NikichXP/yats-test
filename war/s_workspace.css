@@ -165,7 +165,6 @@ body {
 
 #order-edit-payment {
 	margin: auto;
-	height: 300px;
 	width: 50%;
 	left: 25%;
 	top: 10%;
@@ -173,6 +172,7 @@ body {
 	border: 1px solid #d9e0e7;
 	display: none;
 	position: absolute;
+	padding-bottom: 10px;
 	z-index: 501;
 }
 
@@ -237,6 +237,10 @@ body {
 
 #order-edit-del {
 	width: 110px;
+}
+
+#order-edit-file {
+	width: 160px;
 }
 
 /* ORDER CREATION*/

@@ -29,7 +29,7 @@ $(function(){
 				sID = resData.sessionId;
 				setCookie("sesToken", sID);
 				setCookie("sesTO", sTO);
-				setCookie("accessLevel", resData.AccessLevel);
+				setCookie("accessLevel", resData.accessLevel);
 				window.location = "workspace.html";
 			},
 		});		
